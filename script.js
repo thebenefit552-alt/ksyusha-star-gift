@@ -6,90 +6,90 @@ canvas.height = window.innerHeight;
 
 let stars = [];
 
-for(let i = 0; i < 800; i++){
+for(let i = 0; i < 700; i++){
 
-    stars.push({
+stars.push({
 
-        x: Math.random()*canvas.width - canvas.width/2,
+x:(Math.random()-0.5)*2000,
 
-        y: Math.random()*canvas.height - canvas.height/2,
+y:(Math.random()-0.5)*2000,
 
-        z: Math.random()*canvas.width
+z:Math.random()*2000
 
-    });
-
-}
-
-let speed = 2;
-
-function drawSpace(){
-
-    ctx.fillStyle = "#020617";
-    ctx.fillRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
-
-    ctx.save();
-
-    ctx.translate(
-        canvas.width/2,
-        canvas.height/2
-    );
-
-    stars.forEach(star=>{
-
-        star.z -= speed;
-
-        if(star.z <= 0){
-
-            star.z = canvas.width;
-
-        }
-
-        let x =
-        star.x / star.z * canvas.width;
-
-        let y =
-        star.y / star.z * canvas.width;
-
-        let size =
-        (1 - star.z/canvas.width)*4;
-
-        ctx.beginPath();
-
-        ctx.arc(
-            x,
-            y,
-            size,
-            0,
-            Math.PI*2
-        );
-
-        ctx.fillStyle =
-        "white";
-
-        ctx.fill();
-
-    });
-
-    ctx.restore();
-
-    requestAnimationFrame(drawSpace);
+});
 
 }
 
-drawSpace();
+let speed = 4;
+
+function space(){
+
+ctx.fillStyle="#000";
+
+ctx.fillRect(
+0,
+0,
+canvas.width,
+canvas.height
+);
+
+ctx.save();
+
+ctx.translate(
+canvas.width/2,
+canvas.height/2
+);
+
+stars.forEach(star=>{
+
+star.z -= speed;
+
+if(star.z < 1){
+
+star.z = 2000;
+
+}
+
+let x =
+star.x / star.z * 500;
+
+let y =
+star.y / star.z * 500;
+
+let size =
+(1-star.z/2000)*4;
+
+ctx.beginPath();
+
+ctx.arc(
+x,
+y,
+size,
+0,
+Math.PI*2
+);
+
+ctx.fillStyle="white";
+
+ctx.fill();
+
+});
+
+ctx.restore();
+
+requestAnimationFrame(space);
+
+}
+
+space();
 
 window.addEventListener(
 "resize",
 ()=>{
 
-canvas.width = window.innerWidth;
+canvas.width=window.innerWidth;
 
-canvas.height = window.innerHeight;
+canvas.height=window.innerHeight;
 
 });
 
@@ -99,8 +99,11 @@ document.getElementById("start");
 const intro =
 document.querySelector(".intro");
 
-const journey =
-document.getElementById("journey");
+const flight =
+document.getElementById("flight");
+
+const discovery =
+document.getElementById("discovery");
 
 const starScene =
 document.getElementById("starScene");
@@ -108,24 +111,32 @@ document.getElementById("starScene");
 const final =
 document.getElementById("final");
 
-start.onclick = ()=>{
+start.onclick=()=>{
 
-    intro.classList.add("hidden");
+intro.classList.add("hidden");
 
-    journey.classList.remove("hidden");
+flight.classList.remove("hidden");
 
-    setTimeout(()=>{
+setTimeout(()=>{
 
-        journey.classList.add("hidden");
+flight.classList.add("hidden");
 
-        starScene.classList.remove("hidden");
+discovery.classList.remove("hidden");
 
-    },5000);
+},4000);
 
-    setTimeout(()=>{
+setTimeout(()=>{
 
-        final.classList.remove("hidden");
+discovery.classList.add("hidden");
 
-    },10000);
+starScene.classList.remove("hidden");
+
+},8000);
+
+setTimeout(()=>{
+
+final.classList.remove("hidden");
+
+},13000);
 
 };
