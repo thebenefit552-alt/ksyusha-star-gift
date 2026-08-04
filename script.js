@@ -110,7 +110,13 @@ document.getElementById("starScene");
 
 const finalScene = document.getElementById("final");
 start.onclick = ()=>{
+    
+const music = document.getElementById("music");
 
+music.volume = 0.25;
+
+music.play();
+    
     intro.classList.add("hidden");
 
     flight.classList.remove("hidden");
