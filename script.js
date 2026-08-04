@@ -111,32 +111,34 @@ document.getElementById("starScene");
 const final =
 document.getElementById("final");
 
-start.onclick=()=>{
+start.onclick = ()=>{
 
-intro.classList.add("hidden");
+    intro.classList.add("hidden");
 
-flight.classList.remove("hidden");
+    flight.classList.remove("hidden");
 
-setTimeout(()=>{
+    setTimeout(()=>{
 
-flight.classList.add("hidden");
+        flight.classList.add("hidden");
 
-discovery.classList.remove("hidden");
+        discovery.classList.remove("hidden");
 
-},4000);
+    },4000);
 
-setTimeout(()=>{
+    setTimeout(()=>{
 
-discovery.classList.add("hidden");
+        discovery.classList.add("hidden");
 
-starScene.classList.remove("hidden");
+        starScene.classList.remove("hidden");
 
-},8000);
+    },8000);
 
-setTimeout(()=>{
+    setTimeout(()=>{
 
-final.classList.remove("hidden");
+        starScene.classList.add("hidden");
 
-},13000);
+        final.classList.remove("hidden");
+
+    },12000);
 
 };
