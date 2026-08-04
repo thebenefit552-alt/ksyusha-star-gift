@@ -1,0 +1,270 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    overflow:hidden;
+
+    width:100vw;
+    height:100vh;
+
+    font-family:Arial, sans-serif;
+
+    background:#020617;
+
+    color:white;
+
+}
+
+#space{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    z-index:-1;
+
+}
+
+.screen,
+.intro{
+
+    width:100vw;
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:20px;
+
+}
+
+.glass{
+
+    max-width:750px;
+
+    padding:45px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    box-shadow:
+
+    0 0 80px rgba(255,255,255,0.1);
+
+}
+
+h1{
+
+    font-size:55px;
+
+    line-height:1.2;
+
+}
+
+h2{
+
+    font-size:45px;
+
+}
+
+p{
+
+    margin-top:25px;
+
+    font-size:22px;
+
+    line-height:1.7;
+
+}
+
+button{
+
+    margin-top:40px;
+
+    padding:18px 45px;
+
+    border:none;
+
+    border-radius:50px;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    background:white;
+
+    color:#111;
+
+    transition:.4s;
+
+}
+
+button:hover{
+
+    transform:scale(1.08);
+
+    box-shadow:
+
+    0 0 40px white;
+
+}
+
+.hidden{
+
+    display:none;
+
+}
+
+/* ЗВЕЗДА */
+
+.star{
+
+    width:180px;
+
+    height:180px;
+
+    border-radius:50%;
+
+    background:
+
+    radial-gradient(circle,
+
+    white 0%,
+
+    #ffe89a 25%,
+
+    #ffc400 60%,
+
+    #ff9900 100%);
+
+    box-shadow:
+
+    0 0 40px white,
+
+    0 0 90px gold,
+
+    0 0 180px orange;
+
+    animation:pulse 3s infinite;
+
+}
+
+.name{
+
+    margin-top:50px;
+
+    font-size:90px;
+
+    letter-spacing:12px;
+
+    color:white;
+
+    text-shadow:
+
+    0 0 20px gold,
+
+    0 0 50px orange;
+
+}
+
+.letter{
+
+    animation:fade 3s;
+
+}
+
+@keyframes pulse{
+
+0%{
+
+transform:scale(1);
+
+}
+
+50%{
+
+transform:scale(1.1);
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(60px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
+
+}
+
+max-width:700px{
+
+h1{
+
+font-size:38px;
+
+}
+
+h2{
+
+font-size:30px;
+
+}
+
+.name{
+
+font-size:55px;
+
+letter-spacing:5px;
+
+}
+
+p{
+
+font-size:18px;
+
+}
+
+.glass{
+
+padding:30px;
+
+}
+
+}
