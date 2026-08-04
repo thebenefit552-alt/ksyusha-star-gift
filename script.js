@@ -108,9 +108,7 @@ document.getElementById("discovery");
 const starScene =
 document.getElementById("starScene");
 
-const final =
-document.getElementById("final");
-
+const finalScene = document.getElementById("final");
 start.onclick = ()=>{
 
     intro.classList.add("hidden");
@@ -133,12 +131,12 @@ start.onclick = ()=>{
 
     },8000);
 
-    setTimeout(()=>{
+   setTimeout(()=>{
 
-        starScene.classList.add("hidden");
+starScene.classList.add("hidden");
 
-        final.classList.remove("hidden");
+finalScene.classList.remove("hidden");
 
-    },12000);
+},12000);
 
 };
