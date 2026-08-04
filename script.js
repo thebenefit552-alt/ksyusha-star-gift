@@ -6,69 +6,86 @@ canvas.height = window.innerHeight;
 
 let stars = [];
 
-for(let i = 0; i < 500; i++){
+for(let i = 0; i < 800; i++){
 
     stars.push({
 
-        x: Math.random() * canvas.width,
+        x: Math.random()*canvas.width - canvas.width/2,
 
-        y: Math.random() * canvas.height,
+        y: Math.random()*canvas.height - canvas.height/2,
 
-        size: Math.random()*2,
-
-        speed: Math.random()*0.5+0.1,
-
-        opacity: Math.random()
+        z: Math.random()*canvas.width
 
     });
 
 }
 
-function animateStars(){
+let speed = 2;
 
-    ctx.clearRect(
+function drawSpace(){
+
+    ctx.fillStyle = "#020617";
+    ctx.fillRect(
         0,
         0,
         canvas.width,
         canvas.height
     );
 
+    ctx.save();
+
+    ctx.translate(
+        canvas.width/2,
+        canvas.height/2
+    );
+
     stars.forEach(star=>{
+
+        star.z -= speed;
+
+        if(star.z <= 0){
+
+            star.z = canvas.width;
+
+        }
+
+        let x =
+        star.x / star.z * canvas.width;
+
+        let y =
+        star.y / star.z * canvas.width;
+
+        let size =
+        (1 - star.z/canvas.width)*4;
 
         ctx.beginPath();
 
         ctx.arc(
-            star.x,
-            star.y,
-            star.size,
+            x,
+            y,
+            size,
             0,
             Math.PI*2
         );
 
         ctx.fillStyle =
-        `rgba(255,255,255,${star.opacity})`;
+        "white";
 
         ctx.fill();
 
-        star.y += star.speed;
-
-        if(star.y > canvas.height){
-
-            star.y = 0;
-
-            star.x = Math.random()*canvas.width;
-
-        }
-
     });
 
-    requestAnimationFrame(animateStars);
+    ctx.restore();
+
+    requestAnimationFrame(drawSpace);
 
 }
 
-animateStars();
+drawSpace();
 
-window.addEventListener("resize",()=>{
+window.addEventListener(
+"resize",
+()=>{
 
 canvas.width = window.innerWidth;
 
@@ -76,7 +93,7 @@ canvas.height = window.innerHeight;
 
 });
 
-const startButton =
+const start =
 document.getElementById("start");
 
 const intro =
@@ -91,7 +108,7 @@ document.getElementById("starScene");
 const final =
 document.getElementById("final");
 
-startButton.addEventListener("click",()=>{
+start.onclick = ()=>{
 
     intro.classList.add("hidden");
 
@@ -103,12 +120,12 @@ startButton.addEventListener("click",()=>{
 
         starScene.classList.remove("hidden");
 
-    },4000);
+    },5000);
 
     setTimeout(()=>{
 
         final.classList.remove("hidden");
 
-    },9000);
+    },10000);
 
-});
+};
