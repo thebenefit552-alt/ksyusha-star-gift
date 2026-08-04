@@ -1,197 +1,230 @@
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 body{
 
-    overflow:hidden;
+width:100vw;
+height:100vh;
 
-    width:100vw;
-    height:100vh;
+overflow:hidden;
 
-    font-family:Arial, sans-serif;
+font-family:
+'Montserrat',
+Arial,
+sans-serif;
 
-    background:#020617;
+background:#000;
 
-    color:white;
+color:white;
 
 }
 
 #space{
 
-    position:fixed;
+position:fixed;
 
-    top:0;
-    left:0;
+top:0;
+left:0;
 
-    width:100%;
-    height:100%;
+width:100%;
+height:100%;
 
-    z-index:-1;
+z-index:-1;
 
-}
+background:
 
-.screen,
-.intro{
-
-    width:100vw;
-    height:100vh;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-align:center;
-
-    padding:20px;
+radial-gradient(
+circle at center,
+#101b3a,
+#020617 60%,
+#000 100%
+);
 
 }
 
-.glass{
+.scene{
 
-    max-width:750px;
+height:100vh;
 
-    padding:45px;
+width:100vw;
 
-    border-radius:30px;
+display:flex;
 
-    background:rgba(255,255,255,0.08);
+align-items:center;
 
-    backdrop-filter:blur(20px);
+justify-content:center;
 
-    border:1px solid rgba(255,255,255,0.15);
+flex-direction:column;
 
-    box-shadow:
+text-align:center;
 
-    0 0 80px rgba(255,255,255,0.1);
+padding:30px;
+
+}
+
+.content,
+.letter{
+
+background:
+
+rgba(255,255,255,.08);
+
+backdrop-filter:
+
+blur(20px);
+
+border:
+
+1px solid rgba(255,255,255,.15);
+
+padding:45px;
+
+border-radius:30px;
+
+box-shadow:
+
+0 0 80px rgba(255,255,255,.12);
 
 }
 
 h1{
 
-    font-size:55px;
+font-size:60px;
 
-    line-height:1.2;
+line-height:1.2;
+
+text-shadow:
+
+0 0 30px rgba(255,255,255,.4);
 
 }
 
 h2{
 
-    font-size:45px;
+font-size:45px;
 
 }
 
 p{
 
-    margin-top:25px;
+margin-top:25px;
 
-    font-size:22px;
+font-size:24px;
 
-    line-height:1.7;
+line-height:1.7;
 
 }
 
 button{
 
-    margin-top:40px;
+margin-top:40px;
 
-    padding:18px 45px;
+padding:
 
-    border:none;
+18px 50px;
 
-    border-radius:50px;
+font-size:20px;
 
-    font-size:20px;
+border:none;
 
-    cursor:pointer;
+border-radius:50px;
 
-    background:white;
+cursor:pointer;
 
-    color:#111;
+background:white;
 
-    transition:.4s;
+color:#111;
+
+transition:.4s;
 
 }
 
 button:hover{
 
-    transform:scale(1.08);
+transform:scale(1.1);
 
-    box-shadow:
+box-shadow:
 
-    0 0 40px white;
+0 0 50px white;
 
 }
 
 .hidden{
 
-    display:none;
+display:none;
 
 }
 
 /* ЗВЕЗДА */
 
-.star{
+.bigStar{
 
-    width:180px;
+width:220px;
 
-    height:180px;
+height:220px;
 
-    border-radius:50%;
+border-radius:50%;
 
-    background:
+background:
 
-    radial-gradient(circle,
+radial-gradient(
 
-    white 0%,
+circle,
 
-    #ffe89a 25%,
+white,
 
-    #ffc400 60%,
+#fff2a8 25%,
 
-    #ff9900 100%);
+#ffc400 60%,
 
-    box-shadow:
+#ff8500
 
-    0 0 40px white,
+);
 
-    0 0 90px gold,
+box-shadow:
 
-    0 0 180px orange;
+0 0 40px white,
 
-    animation:pulse 3s infinite;
+0 0 100px gold,
+
+0 0 200px orange;
+
+animation:
+
+starPulse 3s infinite;
 
 }
 
-.name{
+.starName{
 
-    margin-top:50px;
+margin-top:50px;
 
-    font-size:90px;
+font-size:100px;
 
-    letter-spacing:12px;
+letter-spacing:15px;
 
-    color:white;
+text-shadow:
 
-    text-shadow:
+0 0 30px gold,
 
-    0 0 20px gold,
-
-    0 0 50px orange;
+0 0 80px orange;
 
 }
 
 .letter{
 
-    animation:fade 3s;
+max-width:800px;
+
+animation:
+
+appear 3s;
 
 }
 
-@keyframes pulse{
+@keyframes starPulse{
 
 0%{
 
@@ -201,7 +234,7 @@ transform:scale(1);
 
 50%{
 
-transform:scale(1.1);
+transform:scale(1.12);
 
 }
 
@@ -213,13 +246,13 @@ transform:scale(1);
 
 }
 
-@keyframes fade{
+@keyframes appear{
 
 from{
 
 opacity:0;
 
-transform:translateY(60px);
+transform:translateY(80px);
 
 }
 
@@ -247,7 +280,7 @@ font-size:30px;
 
 }
 
-.name{
+.starName{
 
 font-size:55px;
 
@@ -261,9 +294,18 @@ font-size:18px;
 
 }
 
-.glass{
+.content,
+.letter{
 
 padding:30px;
+
+}
+
+.bigStar{
+
+width:130px;
+
+height:130px;
 
 }
 
